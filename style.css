@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@font-face {
+    font-family: 'NorseBold';
+    src: url('fonts/Norse-Bold.otf') format('opentype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 main {
@@ -26,10 +33,10 @@ main {
 }
 
 h1 {
-    font-family: 'Skranji', cursive;
+    font-family: 'NorseBold', cursive;
     margin: 0 1rem;
-    /* Add some margin between logo and text */
-    font-size: 7vh;
+    margin-top: 1rem;
+    font-size: 11vh;
 }
 
 .dark-background {
@@ -47,4 +54,35 @@ h1 {
     height: 80%;
     margin-right: 1rem;
     object-fit: contain;
+}
+
+div.hero,
+div.button {
+    background-color: #f9fafb
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 100vh;
+    gap: 20px;
+
+}
+
+div.hero {
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: x-large;
+}
+
+div.hero-content {
+    padding: 20% 25% 5% 30px;
+}
+
+
+
+.button {
+    width: 100%;
 }
