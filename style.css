@@ -3,14 +3,14 @@
     src: url('fonts/Norse-Bold.otf') format('opentype');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 main {
@@ -57,7 +57,7 @@ h1 {
 }
 
 div.hero,
-div.button {
+div.footer {
     background-color: #f9fafb
 }
 
@@ -74,15 +74,84 @@ div.hero {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    font-size: x-large;
+    font-size: larger
 }
 
 div.hero-content {
-    padding: 20% 25% 5% 30px;
+    padding: 20% 25% 5% 20px;
 }
 
 
 
-.button {
+.footer {
     width: 100%;
+
+}
+
+button {
+    background-color: #596D48;
+    border: 1px solid #596D48;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+input {
+    border: #e5e7eb 1px solid;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #596D48;
+}
+
+.footer p {
+    margin-left: 20px;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #596D48;
+}
+
+button:active {
+    transform: scale(0.90);
+}
+
+button:focus {
+    outline: none;
+}
+
+.form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin: 0 20px 20px 20px;
+}
+
+.form label {
+    grid-column: span 2;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: darkslategrey;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form p {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: larger
 }
