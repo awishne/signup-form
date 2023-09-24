@@ -16,6 +16,15 @@
                 <img src="odin-lined.png" class="odin">
                 <h1>ODIN</h1>
             </div>
+            <p class="attribution">
+                Photo by
+                <a
+                    href="https://unsplash.com/@haliewestphoto?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Halie
+                    West</a>
+                on
+                <a
+                    href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+            </p>
 
 
 
@@ -23,7 +32,7 @@
         <div class="wrapper">
             <div class="hero">
                 <div class="hero-content">
-                    <p>This is not a real online Service! You know you need something like this in your life to
+                    <p>This is not a real online service! You know you need something like this in your life to
                         help you realize your deepest dreams.</p>
                     <p>Sign up <em>now</em> to get started. </p>
                     <br>
@@ -32,7 +41,7 @@
             </div>
             <div class="form">
                 <p>Let's do this!</p>
-                <form action="#" method="post">
+                <form action="#" method="post" id="signup-form">
                     <div>
                         <label for="firstname">First Name</label>
                         <input type="text" name="firstname" id="firstname" required>
@@ -47,15 +56,18 @@
                     </div>
                     <div>
                         <label for="phone">Phone Number</label>
-                        <input type="tel" name="phone" id="phone" required>
+                        <input type="tel" name="phone" id="phone" required pattern="\d{3}[-.\s]?\d{3}[-.\s]?\d{4}"
+                            title="Phone number must be in the format 123-456-7890 or 123.456.7890 or 123 456 7890">
                     </div>
                     <div>
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" required>
+                        <div class="error-message" id="password-error">Passwords do not match</div>
                     </div>
                     <div>
                         <label for="confirm-password">Confirm Password</label>
                         <input type="password" name="confirm-password" id="confirm-password" required>
+                        <div class="error-message" id="confirm-error">Passwords do not match</div>
                     </div>
                 </form>
             </div>
@@ -63,7 +75,7 @@
             <div class="footer">
                 <br>
                 <br>
-                <button>Create Account</button>
+                <button id="submit-button">Create Account</button>
                 <p>Already have an account? <a href="#">Log In</a></p>
                 <br>
                 <br>
@@ -71,6 +83,37 @@
         </div>
 
     </main>
+
+    <script type="text/javascript">
+        document.getElementById('confirm-password').addEventListener('input', function () {
+            console.log('Event listener triggered');
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password != confirmPassword) {
+                this.classList.add('input-error');
+                document.getElementById('password').classList.add('input-error');
+                document.getElementById('confirm-error').style.display = 'block';  // show error message
+            } else {
+                this.classList.remove('input-error');
+                document.getElementById('password').classList.remove('input-error');
+                document.getElementById('confirm-error').style.display = 'none';  // hide error message
+            }
+        });
+
+        document.getElementById('submit-button').addEventListener('click', function (event) {
+            var form = document.getElementById('signup-form');
+            if (!form.reportValidity()) {
+                event.preventDefault();
+            } else {
+                form.submit();
+            }
+        });
+
+
+
+    </script>
+
 
 </body>
 
